@@ -17,10 +17,10 @@ public class User {
     private Long id;
 
     @Column(name = "point_password", columnDefinition = "int", nullable = false)
-    private Integer pointPassword;
+    private int pointPassword;
 
     @Column(name = "point", columnDefinition = "int", nullable = false)
-    private Integer point;
+    private int point;
 
     @Builder
     public User(Integer pointPassword, Integer point){

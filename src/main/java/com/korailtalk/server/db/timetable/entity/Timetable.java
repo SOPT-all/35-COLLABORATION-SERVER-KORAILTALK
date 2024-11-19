@@ -32,16 +32,16 @@ public class Timetable {
     private String arrivalAt;
 
     @Column(name = "standard_price", columnDefinition = "int", nullable = false)
-    private Integer standardPrice;
+    private int standardPrice;
 
     @Column(name = "premium_price", columnDefinition = "int")
-    private Integer premiumPrice;
+    private int premiumPrice;
 
     @Column(name = "standard_sold", columnDefinition = "int", nullable = false)
-    private Integer standardSold;
+    private int standardSold;
 
     @Column(name = "premium_sold", columnDefinition = "int", nullable = false)
-    private Integer premiumSold;
+    private int premiumSold;
 
     @Column(name = "departure_place", columnDefinition = "varchar(10)", nullable = false)
     private String departurePlace;
@@ -53,12 +53,12 @@ public class Timetable {
     private String date;
 
     @Column(name = "travel_time", columnDefinition = "int", nullable = false)
-    private Integer travelTime;
+    private int travelTime;
 
-    @OneToMany(mappedBy = "timetable", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Coach> coaches;
 
-    @OneToMany(mappedBy = "timetable", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets;
 
 
