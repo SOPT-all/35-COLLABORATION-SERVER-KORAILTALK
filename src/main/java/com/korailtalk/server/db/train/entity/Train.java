@@ -1,6 +1,5 @@
 package com.korailtalk.server.db.train.entity;
 
-import com.korailtalk.server.db.timetable.entity.Timetable;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -21,9 +20,6 @@ public class Train {
     @Column(name = "name", columnDefinition = "varchar(255)", nullable = false)
     private String name;
 
-    @OneToOne(mappedBy ="train", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Timetable timetable;
-
     //public Train(){
     //}
     //@NoArgsConstructor과 같은 것
@@ -32,9 +28,8 @@ public class Train {
     //기본 생성자가 영속성을 주기 때문에 필요함
 
     @Builder
-    public Train(String name, Timetable timetable){
+    public Train(String name){
         this.name = name;
-        this.timetable = timetable;
     }
 
 }

@@ -21,20 +21,20 @@ public class Coach {
     @Column(name = "id", columnDefinition = "bigint", nullable = false)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "timetable_id", columnDefinition = "bigint", nullable = false)
     private Timetable timetable;
 
     @Column(name = "left_seats", columnDefinition = "int", nullable = false)
-    private Integer leftSeats;
+    private int leftSeats;
 
     @Column(name = "coaches_number", columnDefinition = "int", nullable = false)
-    private Integer coachesNumber;
+    private int coachesNumber;
 
-    @OneToMany(mappedBy = "coach", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets;
 
-    @OneToMany(mappedBy = "coach", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Seat> seats;
 
     @Builder
