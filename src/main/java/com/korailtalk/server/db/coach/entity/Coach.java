@@ -1,15 +1,11 @@
 package com.korailtalk.server.db.coach.entity;
 
-import com.korailtalk.server.db.seat.entity.Seat;
-import com.korailtalk.server.db.ticket.entity.Ticket;
 import com.korailtalk.server.db.timetable.entity.Timetable;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -31,17 +27,9 @@ public class Coach {
     @Column(name = "coaches_number", columnDefinition = "int", nullable = false)
     private int coachesNumber;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ticket> tickets;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Seat> seats;
-
     @Builder
-    public Coach(Timetable timetable, List<Ticket> tickets, List<Seat> seats, Integer leftSeats, Integer coachesNumber){
+    public Coach(Timetable timetable, Integer leftSeats, Integer coachesNumber){
         this.timetable = timetable;
-        this.tickets = tickets;
-        this.seats = seats;
         this.leftSeats = leftSeats;
         this.coachesNumber = coachesNumber;
     }
