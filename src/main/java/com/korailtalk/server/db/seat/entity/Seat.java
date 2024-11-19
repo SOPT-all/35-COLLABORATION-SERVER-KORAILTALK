@@ -31,7 +31,7 @@ public class Seat {
     private boolean seatSold;
 
     @Builder
-    public Seat(Coach coach, String name, Boolean direction, Boolean seatSold){
+    public Seat(final Coach coach, final String name, final boolean direction, final boolean seatSold){
         this.coach = coach;
         this.name = name;
         this.direction = direction;

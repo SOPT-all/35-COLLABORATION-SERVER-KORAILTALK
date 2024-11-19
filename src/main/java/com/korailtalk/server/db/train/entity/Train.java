@@ -28,7 +28,7 @@ public class Train {
     //기본 생성자가 영속성을 주기 때문에 필요함
 
     @Builder
-    public Train(String name){
+    public Train(final String name){
         this.name = name;
     }
 

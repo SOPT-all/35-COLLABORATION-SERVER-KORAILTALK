@@ -28,7 +28,7 @@ public class Coach {
     private int coachesNumber;
 
     @Builder
-    public Coach(Timetable timetable, Integer leftSeats, Integer coachesNumber){
+    public Coach(final Timetable timetable, final int leftSeats, final int coachesNumber){
         this.timetable = timetable;
         this.leftSeats = leftSeats;
         this.coachesNumber = coachesNumber;

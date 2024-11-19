@@ -23,7 +23,7 @@ public class User {
     private int point;
 
     @Builder
-    public User(Integer pointPassword, Integer point){
+    public User(final int pointPassword, final int point){
         this.pointPassword = pointPassword;
         this.point = point;
     }
