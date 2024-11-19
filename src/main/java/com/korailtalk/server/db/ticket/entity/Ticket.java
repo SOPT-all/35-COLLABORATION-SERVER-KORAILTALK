@@ -35,14 +35,11 @@ public class Ticket extends BaseTimeEntity {
     @Column(name = "price", columnDefinition = "int", nullable = false)
     private int price;
 
-    @Column(name = "created_at", columnDefinition = "varchar(20)", nullable = false)
-    private String createdAt;
-
     @Column(name = "ticket_confirm", columnDefinition = "boolean", nullable = false)
     private boolean ticketConfirm;
 
     @Builder
-    public Ticket(Timetable timetable, Seat seat, Coach coach, Integer price, Boolean ticketConfirm){
+    public Ticket(final Timetable timetable, final Seat seat, final Coach coach, final int price, final boolean ticketConfirm){
         this.timetable = timetable;
         this.seat = seat;
         this.coach = coach;

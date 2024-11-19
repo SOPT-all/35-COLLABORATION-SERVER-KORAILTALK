@@ -1,15 +1,11 @@
 package com.korailtalk.server.db.timetable.entity;
 
-import com.korailtalk.server.db.coach.entity.Coach;
-import com.korailtalk.server.db.ticket.entity.Ticket;
 import com.korailtalk.server.db.train.entity.Train;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -55,21 +51,13 @@ public class Timetable {
     @Column(name = "travel_time", columnDefinition = "int", nullable = false)
     private int travelTime;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Coach> coaches;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ticket> tickets;
-
 
     @Builder
-    public Timetable(Train train, List<Coach> coaches, List<Ticket> tickets,
-                     String departureAt, String arrivalAt,
-                     Integer standardPrice, int premiumPrice, Integer standardSold, Integer premiumSold,
-                     String departurePlace, String arrivalPlace, String date, Integer travelTime){
+    public Timetable(final Train train,
+                     final String departureAt, final String arrivalAt,
+                     final int standardPrice, final int premiumPrice, final int standardSold, final int premiumSold,
+                     final String departurePlace, final String arrivalPlace, final String date, final int travelTime){
         this.train = train;
-        this.coaches = coaches;
-        this.tickets = tickets;
         this.departureAt = departureAt;
         this.arrivalAt = arrivalAt;
         this.standardPrice = standardPrice;
