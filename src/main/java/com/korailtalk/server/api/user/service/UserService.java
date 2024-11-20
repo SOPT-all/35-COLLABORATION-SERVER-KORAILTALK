@@ -4,7 +4,7 @@ import com.korailtalk.server.api.common.enums.ErrorStatus;
 import com.korailtalk.server.api.common.exception.NotFoundException;
 import com.korailtalk.server.db.user.entity.User;
 import com.korailtalk.server.db.user.repository.UserRepository;
-import com.korailtalk.server.api.user.dto.resopnse.LPointsResponse;
+import com.korailtalk.server.api.user.dto.response.LPointsResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
