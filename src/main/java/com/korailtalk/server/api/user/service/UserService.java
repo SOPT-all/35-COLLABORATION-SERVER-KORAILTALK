@@ -29,4 +29,13 @@ public class UserService {
         }
     }
 
+    @Transactional
+    public void updatePoints(final Long userId, final int usedPoint) {
+        final User findUser = userRepository.findById(userId).orElseThrow(
+                () -> new NotFoundException(ErrorStatus.NOT_FOUND_USER)
+        );
+
+        findUser.updatePoint(usedPoint);
+    }
+
 }

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Table(name="tickets")
+@Table(name = "tickets")
 public class Ticket extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,12 +39,16 @@ public class Ticket extends BaseTimeEntity {
     private boolean ticketConfirm;
 
     @Builder
-    public Ticket(final Timetable timetable, final Seat seat, final Coach coach, final int price, final boolean ticketConfirm){
+    public Ticket(final Timetable timetable, final Seat seat, final Coach coach, final int price, final boolean ticketConfirm) {
         this.timetable = timetable;
         this.seat = seat;
         this.coach = coach;
         this.price = price;
         this.ticketConfirm = ticketConfirm;
+    }
+
+    public void updatePrice(final int totalPrice) {
+        this.price = totalPrice;
     }
 
 }
