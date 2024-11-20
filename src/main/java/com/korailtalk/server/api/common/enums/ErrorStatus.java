@@ -13,7 +13,8 @@ public enum ErrorStatus {
     // 401 : Unauthorized
 
     // 404 : Not Found
-    NOT_FOUND_USER(HttpStatus.NOT_FOUND, "아이디에 해당하는 유저를 찾을 수 없습니다.");
+    NOT_FOUND_USER(HttpStatus.NOT_FOUND, "아이디에 해당하는 유저를 찾을 수 없습니다."),
+    NOT_FOUND_TICKET(HttpStatus.NOT_FOUND, "아이디에 해당하는 티켓을 찾을 수 없습니다.");
 
     private final HttpStatus httpStatus;
 
