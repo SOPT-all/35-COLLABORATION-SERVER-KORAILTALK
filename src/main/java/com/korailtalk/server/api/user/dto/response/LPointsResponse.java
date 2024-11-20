@@ -1,4 +1,4 @@
-package com.korailtalk.server.api.user.dto.resopnse;
+package com.korailtalk.server.api.user.dto.response;
 
 public record LPointsResponse(
         boolean isValid,
