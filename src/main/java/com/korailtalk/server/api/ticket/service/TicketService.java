@@ -53,4 +53,14 @@ public class TicketService {
                 .coachesNumber(findCoach.getCoachesNumber())
                 .build();
     }
+
+    @Transactional
+    public void updateTicketPrices(final Long ticketId, final int totalPrice) {
+
+        final Ticket findTicket = ticketRepository.findById(ticketId).orElseThrow(
+                () -> new NotFoundException(ErrorStatus.NOT_FOUND_TICKET)
+        );
+
+        findTicket.updatePrice(totalPrice);
+    }
 }
