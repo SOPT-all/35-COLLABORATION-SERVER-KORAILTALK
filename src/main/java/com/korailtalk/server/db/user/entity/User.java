@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Table(name="users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +23,12 @@ public class User {
     private int point;
 
     @Builder
-    public User(final int pointPassword, final int point){
+    public User(final int pointPassword, final int point) {
         this.pointPassword = pointPassword;
         this.point = point;
+    }
+
+    public void updatePoint(final int usedPoint) {
+        this.point -= usedPoint;
     }
 }
