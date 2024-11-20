@@ -1,8 +1,8 @@
-package com.korailtalk.server.user.controller;
+package com.korailtalk.server.api.user.controller;
 
 import com.korailtalk.server.api.common.dto.APISuccessResponse;
-import com.korailtalk.server.user.dto.resopnse.LPointsResponse;
-import com.korailtalk.server.user.service.UserService;
+import com.korailtalk.server.api.user.service.UserService;
+import com.korailtalk.server.api.user.dto.resopnse.LPointsResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
