@@ -30,14 +30,14 @@ public class Timetable {
     @Column(name = "standard_price", columnDefinition = "int", nullable = false)
     private int standardPrice;
 
-    @Column(name = "premium_price", columnDefinition = "int")
+    @Column(name = "premium_price", columnDefinition = "int", nullable = false)
     private int premiumPrice;
 
-    @Column(name = "standard_sold", columnDefinition = "int", nullable = false)
-    private int standardSold;
+    @Column(name = "standard_sold", columnDefinition = "boolean", nullable = false)
+    private boolean standardSold;
 
-    @Column(name = "premium_sold", columnDefinition = "int", nullable = false)
-    private int premiumSold;
+    @Column(name = "premium_sold", columnDefinition = "boolean", nullable = false)
+    private boolean premiumSold;
 
     @Column(name = "departure_place", columnDefinition = "varchar(10)", nullable = false)
     private String departurePlace;
@@ -55,7 +55,7 @@ public class Timetable {
     @Builder
     public Timetable(final Train train,
                      final String departureAt, final String arrivalAt,
-                     final int standardPrice, final int premiumPrice, final int standardSold, final int premiumSold,
+                     final int standardPrice, final int premiumPrice, final boolean standardSold, final boolean premiumSold,
                      final String departurePlace, final String arrivalPlace, final String date, final int travelTime){
         this.train = train;
         this.departureAt = departureAt;
