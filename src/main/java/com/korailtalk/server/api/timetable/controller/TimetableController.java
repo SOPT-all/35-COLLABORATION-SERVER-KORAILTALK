@@ -15,7 +15,7 @@ public class TimetableController {
 
     private final TimetableService timetableService;
 
-    @GetMapping("/trains")
+    @GetMapping("/timetables")
     public ResponseEntity<APISuccessResponse<TimetablesResponse>> getTimetables(
             @RequestHeader final Long userId,
             @RequestParam(name="date") final String date,
