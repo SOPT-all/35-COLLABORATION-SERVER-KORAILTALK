@@ -30,15 +30,15 @@ public class TimetableService {
     }
 
 
-    @Transactional(readOnly = true)
     private List<TimetableResponse> getTimetableList(Long userId, String date, String departurePlace, String arrivalPlace) {
 
         final User findUser = userRepository.findById(userId).orElseThrow(
                 () -> new NotFoundException(ErrorStatus.NOT_FOUND_USER)
         );
 
-        final List<Timetable> findTimetable = timetableRepository.findByDateAndDeparturePlaceAndArrivalPlace(date, departurePlace, arrivalPlace);
-        return findTimetable.stream().map(
+        final List<Timetable> Timetables = timetableRepository.findByDateAndDeparturePlaceAndArrivalPlace(date, departurePlace, arrivalPlace);
+
+        return Timetables.stream().map(
                 timetable -> {
                     Train train = timetable.getTrain();
                     return TimetableResponse.builder()
