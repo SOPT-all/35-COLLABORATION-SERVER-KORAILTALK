@@ -41,10 +41,10 @@ public class Ticket extends BaseTimeEntity {
     @Builder
     public Ticket(final Timetable timetable, final Seat seat, final Coach coach, final int price, final boolean ticketConfirm) {
         this.timetable = timetable;
-        this.seat = seat;
+        this.seat = seat; //
         this.coach = coach;
-        this.price = price;
-        this.ticketConfirm = ticketConfirm;
+        this.price = price; //
+        this.ticketConfirm = ticketConfirm; //
     }
 
     public void updatePrice(final int totalPrice) {
