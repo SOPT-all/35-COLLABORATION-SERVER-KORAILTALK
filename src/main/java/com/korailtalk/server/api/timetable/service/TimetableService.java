@@ -36,9 +36,9 @@ public class TimetableService {
                 () -> new NotFoundException(ErrorStatus.NOT_FOUND_USER)
         );
 
-        final List<Timetable> Timetables = timetableRepository.findByDateAndDeparturePlaceAndArrivalPlace(date, departurePlace, arrivalPlace);
+        final List<Timetable> timetables = timetableRepository.findByDateAndDeparturePlaceAndArrivalPlace(date, departurePlace, arrivalPlace);
 
-        return Timetables.stream().map(
+        return timetables.stream().map(
                 timetable -> {
                     Train train = timetable.getTrain();
                     return TimetableResponse.builder()
