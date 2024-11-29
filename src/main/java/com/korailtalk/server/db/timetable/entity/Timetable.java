@@ -10,14 +10,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Table(name="timetables")
+@Table(name = "timetables")
 public class Timetable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "bigint", nullable = false)
     private Long id;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "train_id", nullable = false)
     private Train train;
 
@@ -56,7 +56,7 @@ public class Timetable {
     public Timetable(final Train train,
                      final String departureAt, final String arrivalAt,
                      final int standardPrice, final int premiumPrice, final boolean standardSold, final boolean premiumSold,
-                     final String departurePlace, final String arrivalPlace, final String date, final int travelTime){
+                     final String departurePlace, final String arrivalPlace, final String date, final int travelTime) {
         this.train = train;
         this.departureAt = departureAt;
         this.arrivalAt = arrivalAt;
